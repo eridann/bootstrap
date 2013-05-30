@@ -1,0 +1,79 @@
+<form class="form-horizontal" action="mailto:toto@gmail.com" method="post">
+    <div class="control-group">
+        <label class="control-label">E-mail</label>
+        <div class="controls">
+            <input type="email" id="emailId" placeholder="votre email" required autofocus="true">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">Age</label>
+        <div class="controls">
+            <input type="range"  min="7" max="77" step="1" value="7" id="inputAge">
+            <span id="ageValue">7</span>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">Date</label>
+        <div class="controls">
+            <input type="date"  id="dateId"  >
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">Color</label>
+        <div class="controls">
+            <input type="color" id="colorId">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">Password</label>
+        <div class="controls">
+            <input type="password" id="pass1" required>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">repeat Password</label>
+        <div class="controls">
+            <input type="password" id="pass2" required>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">repeat Password</label>
+        <div class="controls">
+            <input type="submit" value="envoyer" class="btn btn-success">
+        </div>
+    </div>
+
+</form>
+<script type="text/javascript">
+    $('#inputAge').on('change', function(){
+        $('#ageValue').html($(this).val());
+    })
+    $('#pass2').on('change',function(e){
+        if($(this).val() != $('pass1').val()){
+            e.target.setCustomValidity("bouuu pas bien");
+        }   else {
+            e.target.setCustomValidity("");
+        }
+    })
+
+    $('input').on('change', function(){
+        sessionStorage.setItem($(this).attr('id'), $(this).val());
+    })
+    $('input').each(function(){
+        if(sessionStorage.getItem($(this).attr('id'))){
+            $(this).val(sessionStorage.getItem($(this).attr('id')));
+        }
+    })
+    $('input').on('change', function(){
+
+    })
+    $('form').on('submit',function(){
+
+        var user = {
+            email : $('#email').val(),
+            age : $('#inputAge').val(),
+            color : $('#colorId').val()
+        }
+        localStorage.setItem('monUser', JSON.stringify(user));
+    })
+</script>

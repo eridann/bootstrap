@@ -1,0 +1,4 @@
+// gestion nav
+$('a').on('click', function(){
+    $('#main').load($(this).attr('href'));
+})

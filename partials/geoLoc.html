@@ -1,0 +1,33 @@
+<div id="myMap">
+
+</div>
+
+<script type="text/javascript">
+    if(Modernizr.geolocation){
+        function positionHandler(position){
+            console.log(position.coords.latitude);
+            console.log(position.coords.longitude);
+
+            latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+
+            myOption = {
+                zoom : 15,
+                center :  latlng,
+                mapTypeId : google.maps.MapTypeId.ROADMAP
+            }
+
+            var map = new google.maps.Map(document.getElementById('myMap'),myOption);
+            var marker = new google.maps.Marker({
+                position :latlng,
+                map :map
+            })
+
+        }
+        function positionError(err){
+
+        }
+        navigator.geolocation.getCurrentPosition(positionHandler,positionError());
+    }   else {
+
+    }
+</script>

@@ -1,0 +1,31 @@
+<form class="form-horizontal" action="POST" action="mailto:toto@gmail.com">
+    <div class="control-group">
+        <label for="emailId" class="control-label">E-mail</label>
+        <div class="controls">
+            <input id="emailId" type="email" placeholder="votre email" required="true" autofocus="true"/>
+
+        </div>
+        <div class="control-group">
+            <label class="control-label">Age</label>
+            <div class="controls">
+                <input type="range" min="7" max="77" step="1" value="7" id="inputAge"/>
+                <span id="ageValue"> </span>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">Date</label>
+            <div class="controls">
+                <input type="range" min="7" max="77" step="1" value="7" id="inputDate"/>
+
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">Nom</label>
+            <div class="controls">
+                <input id="inputNom"/>
+
+            </div>
+        </div>
+
+    </div>
+</form>
